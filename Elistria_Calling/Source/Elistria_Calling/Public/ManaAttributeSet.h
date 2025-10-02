@@ -6,6 +6,7 @@
 #include "AttributeSet.h"
 #include "AbilitySystemComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "GameplayEffectExtension.h"
 #include "ManaAttributeSet.generated.h"
 
 /**
@@ -28,16 +29,26 @@ class ELISTRIA_CALLING_API UManaAttributeSet : public UAttributeSet
 public:
 	UManaAttributeSet();
 	
+	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Mana)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Mana, meta = (HideFromModifiers))
 	FGameplayAttributeData Mana;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_MaxMana)
 	FGameplayAttributeData MaxMana;
+
+	UPROPERTY(VisibleAnywhere)
+	FGameplayAttributeData Cost;
+
+	UPROPERTY(VisibleAnywhere)
+	FGameplayAttributeData Restore;
 	
 	ATTRIBUTE_ACCESSORS(UManaAttributeSet, Mana)
 	ATTRIBUTE_ACCESSORS(UManaAttributeSet, MaxMana)
+	ATTRIBUTE_ACCESSORS(UManaAttributeSet, Cost)
+	ATTRIBUTE_ACCESSORS(UManaAttributeSet, Restore)
 
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldValue);

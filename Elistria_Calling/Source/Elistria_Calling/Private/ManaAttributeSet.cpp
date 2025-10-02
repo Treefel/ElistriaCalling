@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "ManaAttributeSet.h"
 
 UManaAttributeSet::UManaAttributeSet()
@@ -31,4 +30,37 @@ void UManaAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldValue)
 	const float OldMaxMana = OldValue.GetCurrentValue();
 	const float NewMaxMana = GetMaxMana();
 	OnMaxManaChanged.Broadcast(this, OldMaxMana, NewMaxMana);
+}
+
+void UManaAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
+{
+	Super::PostGameplayEffectExecute(Data);
+	if (Data.EvaluatedData.Attribute == GetManaAttribute())
+	{
+		SetMana(FMath::Clamp(GetMana(), 0.0f, GetMaxMana()));
+	}
+	if (Data.EvaluatedData.Attribute == GetCostAttribute())
+	{
+		const float CostValue = GetCost();
+		const float OldMana = GetMana();
+		const float ManaMax = GetMaxMana();
+		const float NewMana =  FMath::Clamp(OldMana-CostValue,0.0f, ManaMax);
+		if (OldMana!=NewMana)
+		{
+			SetMana(NewMana);
+		}
+		SetCost(0.0f);
+	}
+	if (Data.EvaluatedData.Attribute==GetMaxManaAttribute())
+	{
+		const float RestoreValue = GetMaxMana();
+		const float OldMana = GetMana();
+		const float ManaMax = GetMaxMana();
+		const float NewMana = FMath::Clamp(OldMana+RestoreValue,0.0f, ManaMax);
+		if (OldMana!=NewMana)
+		{
+			SetMana(NewMana);
+		}
+		SetRestore(0.0f);
+	}
 }
