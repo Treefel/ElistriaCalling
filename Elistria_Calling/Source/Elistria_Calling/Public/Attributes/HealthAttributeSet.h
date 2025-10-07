@@ -13,7 +13,8 @@
 /**
  * 
  */
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FAttributeChangedEvent, UAttributeSet*, AttributeSet, float, OldValue,
+                                               float, NewValue);
 UCLASS()
 class ELISTRIA_CALLING_API UHealthAttributeSet : public UElistriaAttributeSetBase
 {
@@ -23,6 +24,10 @@ public:
 	UHealthAttributeSet();
 
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+
+	
+
+	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
