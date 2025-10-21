@@ -112,6 +112,6 @@ void ULevelAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallb
 		SetLevel(static_cast<float>(Lvl));
 		SetXP(FMath::Clamp(GetXP(),0.0f,ComputeXPForLevel(Lvl)));
 		SetXPToNextLevel(ComputeXPForLevel(Lvl));
-		OnXPToNextLevelChanged.Broadcast(this, OldValue.GetCurrentValue(), XPToNextLevel.GetCurrentValue());
+		OnXPToNextLevelChanged.Broadcast(this, XPToNextLevel.GetCurrentValue(), XPToNextLevel.GetCurrentValue());
 	}
 }
