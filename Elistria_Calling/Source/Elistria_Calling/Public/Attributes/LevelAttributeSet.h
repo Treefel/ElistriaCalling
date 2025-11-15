@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "ElistriaAttributeSetBase.h"
-#include "AbilitySystemComponent.h"
+#include "ElistriaAbilitySystemComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "GameplayEffectExtension.h"
 #include "ManaAttributeSet.h"

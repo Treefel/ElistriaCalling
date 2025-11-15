@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AttributeSet.h"
+#include "ElistriaAbilitySystemComponent.h"
 #include "ElistriaAttributeSetBase.h"
 #include "HealthAttributeSet.h"
 #include "StaminaAttributeSet.generated.h"
