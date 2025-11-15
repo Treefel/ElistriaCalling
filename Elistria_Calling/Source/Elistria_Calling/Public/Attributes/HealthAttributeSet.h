@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AbilitySystemComponent.h"
+#include "ElistriaAbilitySystemComponent.h"
 #include "AttributeSet.h"
 #include "ElistriaAttributeSetBase.h"
 #include "Net/UnrealNetwork.h"

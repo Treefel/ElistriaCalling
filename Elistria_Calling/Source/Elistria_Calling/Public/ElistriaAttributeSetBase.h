@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ElistriaAbilitySystemComponent.h"
 #include "AttributeSet.h"
 #include "ElistriaAttributeSetBase.generated.h"
 

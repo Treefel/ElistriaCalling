@@ -152,10 +152,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "MassEntity",
-			"Enabled": true
-		},
-		{
 			"Name": "GameplayInteractions",
 			"Enabled": true
 		},
@@ -328,10 +324,6 @@
 		},
 		{
 			"Name": "AnimatorKit",
-			"Enabled": true
-		},
-		{
-			"Name": "GeneSplicer",
 			"Enabled": true
 		},
 		{

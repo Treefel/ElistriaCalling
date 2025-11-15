@@ -11,6 +11,7 @@ AMagickPlayerState::AMagickPlayerState()
 	HealthSet = CreateDefaultSubobject<UHealthAttributeSet>(TEXT("HealthSet"));
 	StaminaSet = CreateDefaultSubobject<UStaminaAttributeSet>(TEXT("StaminaSet"));
 	LevelSet = CreateDefaultSubobject<ULevelAttributeSet>(TEXT("XPSet"));
+	
 }
 
 UElistriaAbilitySystemComponent* AMagickPlayerState::GetAbilitySystemComponent() const
