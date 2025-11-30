@@ -8,7 +8,7 @@
 #include "GameplayEffectExtension.h"
 #include "LevelAttributeSet.generated.h"
 
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API ULevelAttributeSet : public UElistriaAttributeSetBase
 {
 	GENERATED_BODY()
@@ -22,13 +22,13 @@ public:
 	// Broadcast attribute changes centrally
 	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing = OnRep_Level)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_Level)
 	FGameplayAttributeData Level;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing = OnRep_XP)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_XP)
 	FGameplayAttributeData XP;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing = OnRep_XPToNextLevel)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_XPToNextLevel)
 	FGameplayAttributeData XPToNextLevel;
 
 	UPROPERTY(VisibleAnywhere)
@@ -39,6 +39,15 @@ public:
 	ATTRIBUTE_ACCESSORS(ULevelAttributeSet, XPToNextLevel)
 	ATTRIBUTE_ACCESSORS(ULevelAttributeSet, MaxLevel)
 
+	UFUNCTION(BlueprintCallable, Category="Attributes|Level")
+	void SetXPBase(float NewXP);
+	
+	UFUNCTION(BlueprintCallable, Category="Attributes|Level")
+	void SetLevelBase(float NewLevel);
+	
+	UFUNCTION(BlueprintCallable, Category="Attributes|Level")
+	void SetXPToNextLevelBase(float NewXPToNextLevel);
+	
 	UFUNCTION()
 	void OnRep_Level(const FGameplayAttributeData& OldValue);
 

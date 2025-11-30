@@ -69,3 +69,14 @@ void UManaAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		SetRestore(0.0f);
 	}
 }
+
+void UManaAttributeSet::SetManaBase(float NewBaseValue)
+{
+	Mana.SetBaseValue(NewBaseValue);
+	Mana.SetCurrentValue(NewBaseValue);
+}
+void UManaAttributeSet::SetMaxManaBase(float NewBaseValue)
+{
+	MaxMana.SetBaseValue(NewBaseValue);
+	MaxMana.SetCurrentValue(NewBaseValue);
+}

@@ -11,7 +11,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API UStaminaAttributeSet : public UElistriaAttributeSetBase
 {
 	GENERATED_BODY()
@@ -22,11 +22,11 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Stamina)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing=OnRep_Stamina)
 	FGameplayAttributeData Stamina;
 	ATTRIBUTE_ACCESSORS(UStaminaAttributeSet, Stamina)
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_MaxStamina)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing=OnRep_MaxStamina)
 	FGameplayAttributeData MaxStamina;
 	ATTRIBUTE_ACCESSORS(UStaminaAttributeSet, MaxStamina)
 	
@@ -37,6 +37,12 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	FGameplayAttributeData Restore;
 	ATTRIBUTE_ACCESSORS(UStaminaAttributeSet, Restore)
+	
+	UFUNCTION(BlueprintCallable)
+	void SetStaminaBase(float NewStamina);
+	
+	UFUNCTION(BlueprintCallable)
+	void SetMaxStaminaBase(float NewMaxStamina);
 
 	UFUNCTION()
 	void OnRep_Stamina(const FGameplayAttributeData& OldValue);
