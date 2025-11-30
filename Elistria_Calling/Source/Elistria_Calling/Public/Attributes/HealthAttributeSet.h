@@ -14,7 +14,7 @@
  * 
  */
 
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API UHealthAttributeSet : public UElistriaAttributeSetBase
 {
 	GENERATED_BODY()
@@ -24,16 +24,14 @@ public:
 
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
-	
-
 	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,ReplicatedUsing=OnRep_Health)
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,ReplicatedUsing=OnRep_Health)
 	FGameplayAttributeData Health;
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,ReplicatedUsing=OnRep_MaxHealth)
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,ReplicatedUsing=OnRep_MaxHealth)
 	FGameplayAttributeData MaxHealth;
 
 	UPROPERTY(VisibleAnywhere)
@@ -46,6 +44,11 @@ public:
 	ATTRIBUTE_ACCESSORS(UHealthAttributeSet, MaxHealth)
 	ATTRIBUTE_ACCESSORS(UHealthAttributeSet, Damage)
 	ATTRIBUTE_ACCESSORS(UHealthAttributeSet, Heal)
+	
+	UFUNCTION(BlueprintCallable)
+	void SetHealthBase(float NewHealth);
+	UFUNCTION(BlueprintCallable)
+	void SetMaxHealthBase(float NewMaxHealth);
 
 	UFUNCTION()
 	void OnRep_Health(const FGameplayAttributeData& OldValue);

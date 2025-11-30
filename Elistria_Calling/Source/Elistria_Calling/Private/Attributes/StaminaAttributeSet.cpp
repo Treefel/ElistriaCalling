@@ -63,3 +63,13 @@ void UStaminaAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCal
 		SetRestore(0.0f);
 	}
 }
+void UStaminaAttributeSet::SetStaminaBase(float NewStamina)
+{
+	Stamina.SetBaseValue(NewStamina);
+	Stamina.SetCurrentValue(NewStamina);
+}
+void UStaminaAttributeSet::SetMaxStaminaBase(float NewMaxStamina)
+{
+	MaxStamina.SetBaseValue(NewMaxStamina);
+	MaxStamina.SetCurrentValue(NewMaxStamina);
+}

@@ -250,3 +250,59 @@ void UElistriaAttributesSet::OnRep_Will(const FGameplayAttributeData& OldValue)
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UElistriaAttributesSet, Will, OldValue);
 	OnWillChanged.Broadcast(this, OldValue.GetCurrentValue(), Will.GetCurrentValue());
 }
+
+void UElistriaAttributesSet::SetWillBase(float NewValue)
+{
+	Will.SetBaseValue(NewValue);
+	Will.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetAttributePointsBase(float NewValue)
+{
+	AttributePoints.SetBaseValue(NewValue);
+	AttributePoints.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetThieveryBase(float NewValue){
+	Thievery.SetBaseValue(NewValue);
+	Thievery.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetDefensibilityBase(float NewValue){
+	Defensibility.SetBaseValue(NewValue);
+	Defensibility.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetDiscernmentBase(float NewValue){
+	Discernment.SetBaseValue(NewValue);
+	Discernment.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetLightWeaponryBase(float NewValue){
+	LightWeaponry.SetBaseValue(NewValue);
+	LightWeaponry.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetHeavyWeaponryBase(float NewValue){
+	HeavyWeaponry.SetBaseValue(NewValue);
+	HeavyWeaponry.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetPerceptionBase(float NewValue){
+	Perception.SetBaseValue(NewValue);
+	Perception.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetStealthBase(float NewValue){
+	Stealth.SetBaseValue(NewValue);
+	Stealth.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetSurvivalBase(float NewValue){
+	Survival.SetBaseValue(NewValue);
+	Survival.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetArcheryBase(float NewValue){
+	Archery.SetBaseValue(NewValue);
+	Archery.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetAthleticsBase(float NewValue){
+	Athletics.SetBaseValue(NewValue);
+	Athletics.SetCurrentValue(NewValue);
+}
+void UElistriaAttributesSet::SetDeceitBase(float NewValue){
+	Deceit.SetBaseValue(NewValue);
+	Deceit.SetCurrentValue(NewValue);
+}
+

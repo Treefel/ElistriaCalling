@@ -15,7 +15,7 @@ class UPlayerGameplayAbilitiesDataAsset;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnASCGrantedInputAbilties, UElistriaAbilitySystemComponent*, ASC);
 
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API UElistriaAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()

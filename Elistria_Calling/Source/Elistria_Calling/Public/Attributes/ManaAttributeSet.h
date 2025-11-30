@@ -13,7 +13,7 @@
  * 
  */
 
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API UManaAttributeSet : public UElistriaAttributeSetBase
 {
 	GENERATED_BODY()
@@ -25,10 +25,10 @@ public:
 	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_Mana, meta = (HideFromModifiers))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing=OnRep_Mana, meta = (HideFromModifiers))
 	FGameplayAttributeData Mana;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, ReplicatedUsing=OnRep_MaxMana)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing=OnRep_MaxMana)
 	FGameplayAttributeData MaxMana;
 
 	UPROPERTY(VisibleAnywhere)
@@ -41,6 +41,11 @@ public:
 	ATTRIBUTE_ACCESSORS(UManaAttributeSet, MaxMana)
 	ATTRIBUTE_ACCESSORS(UManaAttributeSet, Cost)
 	ATTRIBUTE_ACCESSORS(UManaAttributeSet, Restore)
+	
+	UFUNCTION(BlueprintCallable)
+	void SetManaBase(float NewBaseValue);
+	UFUNCTION(BlueprintCallable)
+	void SetMaxManaBase(float NewBaseValue);
 
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldValue);

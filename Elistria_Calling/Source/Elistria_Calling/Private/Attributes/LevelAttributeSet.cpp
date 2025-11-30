@@ -133,3 +133,18 @@ void ULevelAttributeSet::PostAttributeChange(const FGameplayAttribute& Attribute
   OnXPToNextLevelChanged.Broadcast(this, OldValue, NewValue);
  }
 }
+void ULevelAttributeSet::SetXPBase(float NewXP)
+{
+ XP.SetBaseValue(NewXP);
+ XP.SetCurrentValue(NewXP);
+}
+void ULevelAttributeSet::SetLevelBase(float NewLevel)
+{
+ Level.SetBaseValue(NewLevel);
+ Level.SetCurrentValue(NewLevel);
+}
+void ULevelAttributeSet::SetXPToNextLevelBase(float NewXPToNextLevel)
+{
+ XPToNextLevel.SetBaseValue(NewXPToNextLevel);
+ XPToNextLevel.SetCurrentValue(NewXPToNextLevel);
+}

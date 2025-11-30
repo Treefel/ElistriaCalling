@@ -32,7 +32,7 @@ public:
 	void SetupAbilityActorInfo();
 	
 protected:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Abilities, ReplicatedUsing = OnRep_ElistriaAbilitySystemComponent)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category=Abilities, ReplicatedUsing = OnRep_ElistriaAbilitySystemComponent)
 	TObjectPtr<class UElistriaAbilitySystemComponent> ElistriaAbilitySystemComponent;
 
 	UPROPERTY(Replicated)

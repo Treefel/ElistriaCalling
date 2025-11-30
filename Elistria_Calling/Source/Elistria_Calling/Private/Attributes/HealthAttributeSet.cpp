@@ -86,3 +86,14 @@ void UHealthAttributeSet::PostAttributeChange(const FGameplayAttribute& Attribut
 		}
 	}
 }
+
+void UHealthAttributeSet::SetHealthBase(float NewHealth)
+{
+	Health.SetBaseValue(NewHealth);
+	Health.SetCurrentValue(NewHealth);
+}
+void UHealthAttributeSet::SetMaxHealthBase(float NewMaxHealth)
+{
+	MaxHealth.SetBaseValue(NewMaxHealth);
+	MaxHealth.SetCurrentValue(NewMaxHealth);
+}

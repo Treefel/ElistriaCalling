@@ -14,10 +14,10 @@
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName) 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FAttributeChangedEvent, UAttributeSet*, AttributeSet, float, OldValue, float, NewValue);
-UCLASS()
+UCLASS(BlueprintType)
 class ELISTRIA_CALLING_API UElistriaAttributeSetBase : public UAttributeSet
 {
 	GENERATED_BODY()
